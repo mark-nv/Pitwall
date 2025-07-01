@@ -1,4 +1,4 @@
-# F1
+# F1 Pitwall
 
 Web application for Formula 1 data analysis and visualization.
 
