@@ -17,7 +17,7 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/api/latest-race")
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/latest-race`)
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {
