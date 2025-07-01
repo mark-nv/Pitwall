@@ -5,6 +5,9 @@ import os
 
 app = FastAPI()
 
+# Get the port from the environment variable, default to 8000 if not set
+PORT = int(os.environ.get("PORT", 8000))
+
 # Define cache directory path
 cache_dir = os.path.join(os.path.dirname(__file__), "cache")
 

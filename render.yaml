@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: pitwall-backend
+    env: python
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT"
+    rootDir: backend
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: "10000"
