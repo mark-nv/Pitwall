@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+pip-wheel-metadata/
+.installed.cfg
+*.egg
+*.egg-info/
+.env
+.env.*
+!/.env.example
+
+# Node (specific to the frontend app location)
+frontend/f1-web-app/node_modules
+frontend/f1-web-app/.next
+frontend/f1-web-app/out
+frontend/f1-web-app/build
+frontend/f1-web-app/.pnp
+frontend/f1-web-app/.pnp.*
+frontend/f1-web-app/coverage
+frontend/f1-web-app/npm-debug.log*
+frontend/f1-web-app/yarn-debug.log*
+frontend/f1-web-app/yarn-error.log*
+frontend/f1-web-app/.pnpm-debug.log*
+frontend/f1-web-app/*.tsbuildinfo
+frontend/f1-web-app/next-env.d.ts
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Editor-specific
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# FastF1 Cache
+backend/cache/
