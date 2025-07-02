@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '../styles/theme.css';
+
 body {
-  background-color: #1a202c;
-  color: white;
+  /* These are now handled by theme.css */
 }

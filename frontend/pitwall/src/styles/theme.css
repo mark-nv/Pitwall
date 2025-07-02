@@ -1,0 +1,49 @@
+:root {
+  --color-primary: #ef4444;
+  /* Red */
+  --color-secondary: #3b82f6;
+  /* Blue */
+  --color-background-light: #ffffff;
+  --color-text-light: #1f2937;
+  /* --color-background-dark: #1f2937; */
+  --color-background-dark: #222222;
+  --color-text-dark: #f9fafb;
+
+  --font-family-sans: 'Inter', sans-serif;
+  --font-family-mono: 'Fira Code', monospace;
+
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+
+  /* Default to dark theme */
+  --color-background: var(--color-background-dark);
+  --color-text: var(--color-text-dark);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-background: var(--color-background-light);
+    --color-text: var(--color-text-light);
+  }
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+}
+
+button {
+  border-radius: var(--border-radius-md);
+}

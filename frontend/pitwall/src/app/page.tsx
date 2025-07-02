@@ -1,9 +1,11 @@
-import Hero from '@/components/Hero';
+import RedBullCar from '@/components/RedBullCar';
+import Title from '@/components/Title';
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <Hero />
+      <Title />
+      <RedBullCar />
     </main>
   );
 }

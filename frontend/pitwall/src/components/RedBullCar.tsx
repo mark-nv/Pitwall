@@ -3,6 +3,8 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF, useTexture } from '@react-three/drei';
 
+
+
 import * as THREE from 'three';
 import { useRef, useState, forwardRef, useImperativeHandle } from 'react';
 
@@ -60,31 +62,33 @@ const Model = forwardRef((_props, ref) => {
     }
   });
 
-  return <primitive object={scene} ref={modelRef} position={[0, -0.84, 0]} />;
+  return <primitive object={scene} ref={modelRef} position={[STARTING_X_POSITION, STARTING_Y_POSITION, 0]} />;
 });
 
 Model.displayName = 'Model';
 
-const Hero = () => {
+const STARTING_Y_POSITION = -0.7;
+const STARTING_X_POSITION = 0;
+
+const RedBullCar = () => {
   const modelComponentRef = useRef<{ setHasInteracted: (value: boolean) => void }>(null);
 
   return (
-    <div className="h-screen w-full" style={{backgroundColor: '#222222'}}>
-      <Canvas shadows camera={{ position: [8, 2.5, 8], fov: 30 }} gl={{ antialias: true, outputColorSpace: THREE.SRGBColorSpace }}>
-        <color attach="background" args={['#222222']} />
-        <ambientLight intensity={0.2} />
+    <div className="relative h-screen w-full" style={{backgroundColor: 'var(--color-background)'}}>
+      <Canvas shadows camera={{ position: [8, 2.5, 8], fov: 15 }} gl={{ antialias: true, outputColorSpace: THREE.SRGBColorSpace }}>
+        <ambientLight intensity={0.1} />
         <directionalLight
-            position={[5, 10, 7.5]}
+            position={[15, 20, 7.5]}
             intensity={1.5}
             castShadow
             shadow-mapSize-width={2048}
             shadow-mapSize-height={2048}
             shadow-camera-near={0.5}
             shadow-camera-far={50}
-            shadow-camera-left={-10}
-            shadow-camera-right={10}
-            shadow-camera-top={10}
-            shadow-camera-bottom={-10}
+            shadow-camera-left={-15}
+            shadow-camera-right={15}
+            shadow-camera-top={15}
+            shadow-camera-bottom={-15}
         />
         <OrbitControls 
           target={[0, 0, 0]} 
@@ -95,16 +99,53 @@ const Hero = () => {
             MIDDLE: undefined,
             RIGHT: undefined,
           }}
+          enableZoom={false}
           onStart={() => modelComponentRef.current?.setHasInteracted(true)}
         />
         <Model ref={modelComponentRef} />
-        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.81, 0]} receiveShadow>
-          <planeGeometry args={[100, 100]} />
-          <meshStandardMaterial color="#222222" />
+        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, STARTING_Y_POSITION + 0.03, 0]} receiveShadow>
+          <circleGeometry args={[3, 32]} />
+          <shaderMaterial
+            attach="material"
+            args={[{
+              uniforms: {
+                color: { value: new THREE.Color("#333333") },
+                opacity: { value: 0.5 },
+                center: { value: new THREE.Vector2(0.5, 0.5) },
+                radius: { value: 0.4 },
+                fadePower: { value: 2.0 }
+              },
+              vertexShader: `
+                varying vec2 vUv;
+                void main() {
+                  vUv = uv;
+                  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                }
+              `,
+              fragmentShader: `
+                uniform vec3 color;
+                uniform float opacity;
+                uniform float radius;
+                uniform float fadePower;
+                varying vec2 vUv;
+
+                void main() {
+                  float dist = distance(vUv, vec2(0.5, 0.5));
+                  float alpha = 1.0 - smoothstep(radius - 0.1, radius + 0.1, dist);
+                  gl_FragColor = vec4(color, alpha * opacity);
+                }
+              `,
+              transparent: true,
+            }]}
+          />
+        </mesh>
+        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, STARTING_Y_POSITION + 0.04, 0]} receiveShadow>
+          <planeGeometry args={[20, 20]} />
+          <shadowMaterial transparent opacity={0.5} />
         </mesh>
       </Canvas>
     </div>
   );
 };
 
-export default Hero;
+export default RedBullCar;
