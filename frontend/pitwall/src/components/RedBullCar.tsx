@@ -9,7 +9,7 @@ import * as THREE from 'three';
 import { useRef, useState, forwardRef, useImperativeHandle } from 'react';
 
 const Model = forwardRef((_props, ref) => {
-  const { scene } = useGLTF('/assets/rb20/rb20.gltf');
+  const { scene } = useGLTF('/assets/rb20/rb20.glb');
   const modelRef = useRef<THREE.Group>(null);
   const [hasInteracted, setHasInteracted] = useState(false);
 
@@ -48,8 +48,8 @@ const Model = forwardRef((_props, ref) => {
           child.material.metalness = 0.1;
           child.material.roughness = 0.75;
         } else {
-          child.material.metalness = 0.0;
-          child.material.roughness = 0.9;
+          child.material.metalness = -0.3;
+          child.material.roughness = 0.7;
         }
         child.material.needsUpdate = true;
       }
@@ -76,10 +76,10 @@ const RedBullCar = () => {
   return (
     <div className="relative h-screen w-full" style={{backgroundColor: 'var(--color-background)'}}>
       <Canvas shadows camera={{ position: [8, 2.5, 8], fov: 15 }} gl={{ antialias: true, outputColorSpace: THREE.SRGBColorSpace }}>
-        <ambientLight intensity={0.1} />
+        <ambientLight intensity={0.5} />
         <directionalLight
             position={[15, 20, 7.5]}
-            intensity={1.5}
+            intensity={4}
             castShadow
             shadow-mapSize-width={2048}
             shadow-mapSize-height={2048}
@@ -112,7 +112,7 @@ const RedBullCar = () => {
                 color: { value: new THREE.Color("#333333") },
                 opacity: { value: 0.5 },
                 center: { value: new THREE.Vector2(0.5, 0.5) },
-                radius: { value: 0.4 },
+                radius: { value: 0.3 },
                 fadePower: { value: 2.0 }
               },
               vertexShader: `

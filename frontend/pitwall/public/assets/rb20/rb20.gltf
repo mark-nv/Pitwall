@@ -585,38 +585,38 @@
 	"images":[
 		{
 			"mimeType":"image/png",
-			"name":"aiStandardSurface38_Base_color_1001",
-			"uri":"aiStandardSurface38_Base_color_1001.png"
+			"name":"StandardSurface38_Base_color_1001",
+			"uri":"StandardSurface38_Base_color_1001.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"aiStandardSurface31_Base_color_1001",
-			"uri":"aiStandardSurface31_Base_color_1001.png"
+			"name":"StandardSurface31_Base_color_1001",
+			"uri":"StandardSurface31_Base_color_1001.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"aiStandardSurface32_Base_color_1001",
-			"uri":"aiStandardSurface32_Base_color_1001.png"
+			"name":"StandardSurface32_Base_color_1001",
+			"uri":"StandardSurface32_Base_color_1001.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"aiStandardSurface33_Base_color_1001",
-			"uri":"aiStandardSurface33_Base_color_1001.png"
+			"name":"StandardSurface33_Base_color_1001",
+			"uri":"StandardSurface33_Base_color_1001.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"aiStandardSurface39_Base_color_1001",
-			"uri":"aiStandardSurface39_Base_color_1001.png"
+			"name":"StandardSurface39_Base_color_1001",
+			"uri":"StandardSurface39_Base_color_1001.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"aiStandardSurface34_Base_color_1001",
-			"uri":"aiStandardSurface34_Base_color_1001.png"
+			"name":"StandardSurface34_Base_color_1001",
+			"uri":"StandardSurface34_Base_color_1001.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"Steer_new",
-			"uri":"Steer_new.png"
+			"name":"StandardSurface34_Base_color_1001",
+			"uri":"StandardSurface34_Base_color_1001.png"
 		}
 	],
 	"accessors":[
