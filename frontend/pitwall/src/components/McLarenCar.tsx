@@ -3,8 +3,6 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 
-
-
 import * as THREE from 'three';
 import { useRef, useState, forwardRef, useImperativeHandle } from 'react';
 
@@ -16,8 +14,6 @@ const Model = forwardRef((_props, ref) => {
   useImperativeHandle(ref, () => ({
     setHasInteracted,
   }));
-
-
 
   scene.traverse((child) => {
     if (child instanceof THREE.Mesh) {
@@ -50,7 +46,10 @@ const McLarenCar = () => {
   const modelComponentRef = useRef<{ setHasInteracted: (value: boolean) => void }>(null);
 
   return (
-    <div className="relative h-screen w-full" style={{backgroundColor: 'var(--color-background)'}}>
+    <div className="relative h-screen w-full" style={{
+      backgroundColor: 'var(--color-background)',
+      maxHeight: '60dvh',
+    }}>
       <Canvas shadows camera={{ position: [8, 2.5, 8], fov: 15 }} gl={{ antialias: true, outputColorSpace: THREE.SRGBColorSpace }}>
         <ambientLight intensity={0.5} />
         <directionalLight

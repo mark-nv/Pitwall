@@ -1,9 +1,7 @@
 'use client';
 
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, useGLTF, useTexture } from '@react-three/drei';
-
-
+import { OrbitControls, useGLTF } from '@react-three/drei';
 
 import * as THREE from 'three';
 import { useRef, useState, forwardRef, useImperativeHandle } from 'react';
@@ -17,40 +15,14 @@ const Model = forwardRef((_props, ref) => {
     setHasInteracted,
   }));
 
-  const modelTextureMap = {
-    'model_0': '/assets/rb20/StandardSurface38_Base_color_1001.png',
-    'model_1': '/assets/rb20/StandardSurface31_Base_color_1001.png',
-    'model_3': '/assets/rb20/StandardSurface32_Base_color_1001.png',
-    'model_4': '/assets/rb20/StandardSurface33_Base_color_1001.png',
-    'model_5': '/assets/rb20/StandardSurface39_Base_color_1001.png',
-    'model_6': '/assets/rb20/StandardSurface34_Base_color_1001.png',
-  };
-
-  const textures = useTexture(Object.values(modelTextureMap));
-
-  const loadedTextures = Object.keys(modelTextureMap).reduce<Record<string, THREE.Texture>>((acc, key, index) => {
-    acc[key] = textures[index];
-    acc[key].flipY = false;
-    return acc;
-  }, {});
-
-
   scene.traverse((child) => {
     if (child instanceof THREE.Mesh) {
       child.castShadow = true;
       child.receiveShadow = true;
-      const modelName = child.name.replace('.001', '');
-      const texture = loadedTextures[modelName];
       
       if (child.material instanceof THREE.MeshStandardMaterial) {
-        if (texture) {
-          child.material.map = texture;
-          child.material.metalness = 0.1;
-          child.material.roughness = 0.75;
-        } else {
-          child.material.metalness = -0.3;
-          child.material.roughness = 0.7;
-        }
+        child.material.metalness = -0.3;
+        child.material.roughness = 0.7;
         child.material.needsUpdate = true;
       }
     }
@@ -74,7 +46,10 @@ const RedBullCar = () => {
   const modelComponentRef = useRef<{ setHasInteracted: (value: boolean) => void }>(null);
 
   return (
-    <div className="relative h-screen w-full" style={{backgroundColor: 'var(--color-background)'}}>
+    <div className="relative h-screen w-full" style={{
+      backgroundColor: 'var(--color-background)',
+      maxHeight: '60dvh',
+    }}>
       <Canvas shadows camera={{ position: [8, 2.5, 8], fov: 15 }} gl={{ antialias: true, outputColorSpace: THREE.SRGBColorSpace }}>
         <ambientLight intensity={0.5} />
         <directionalLight
