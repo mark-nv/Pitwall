@@ -1,11 +1,13 @@
 # F1 Pitwall
 
+[work-in-progress]
 Web application for Formula 1 data analysis and visualization.
+View archived race data, visualize live performance and race conditions, and predict qualifying and race outcomes.
 
 ## Project Structure
 
-- `frontend`: Next.js application for the user interface.
-- `backend`: Python FastAPI application for the backend API.
+- `frontend`: Next.js application with Three.js for the user interface.
+- `backend`: Python FastF1 application for the backend API.
 
 ## Getting Started
 
