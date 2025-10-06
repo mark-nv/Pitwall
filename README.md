@@ -28,7 +28,7 @@ Web application for Formula 1 data analysis and visualization.
 
 1.  Navigate to the `frontend/f1-web-app` directory:
     ```sh
-    cd frontend/f1-web-app
+    cd frontend/pitwall
     ```
 2.  Install the required dependencies:
     ```sh
