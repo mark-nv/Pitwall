@@ -4,7 +4,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 
 import * as THREE from 'three';
-import { useRef, useState, forwardRef, useImperativeHandle, useEffect } from 'react';
+import { useRef, useState, forwardRef, useImperativeHandle } from 'react';
 
 const Model = forwardRef((_props, ref) => {
   const { scene } = useGLTF('/assets/rb20/rb20.glb');

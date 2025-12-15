@@ -20,20 +20,20 @@ import { ArrowRight, Cpu, TrendingUp } from "lucide-react"
 // Replace this with your actual import, e.g.:
 // import RedBullCarCanvas from "@/components/3d/RedBullCarCanvas";
 
-const ThreeJSRedBullCanvasMock = () => {
-  return (
-    <div className="absolute inset-0 z-0 bg-neutral-950 flex items-center justify-center overflow-hidden">
-       {/* Replace this div with your <Canvas> component */}
-       <div className="relative w-full h-full">
-          {/* Fake 3D effect for demonstration */}
-          {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-blue-900/40 via-transparent to-red-900/40 blur-[100px] opacity-50"></div> */}
-          <RedBullCar />
-          {/* Add a subtle grid floor */}
-          {/* <div className="absolute bottom-0 w-full h-1/2 bg-[linear-gradient(to_bottom,transparent_0%,#0a0a0a_100%),linear-gradient(to_right,#ffffff0d_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0d_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div> */}
-       </div>
-    </div>
-  )
-}
+// const ThreeJSRedBullCanvasMock = () => {
+//   return (
+//     <div className="absolute inset-0 z-0 bg-neutral-950 flex items-center justify-center overflow-hidden">
+//        {/* Replace this div with your <Canvas> component */}
+//        <div className="relative w-full h-full">
+//           {/* Fake 3D effect for demonstration */}
+//           {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-blue-900/40 via-transparent to-red-900/40 blur-[100px] opacity-50"></div> */}
+//           <RedBullCar />
+//           {/* Add a subtle grid floor */}
+//           {/* <div className="absolute bottom-0 w-full h-1/2 bg-[linear-gradient(to_bottom,transparent_0%,#0a0a0a_100%),linear-gradient(to_right,#ffffff0d_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0d_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div> */}
+//        </div>
+//     </div>
+//   )
+// }
 // --------------------------------------------
 
 

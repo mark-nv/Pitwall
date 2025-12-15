@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { FlagIcon } from "lucide-react" // Assuming lucide-react is installed via shadcn
 
 const navItems = [
